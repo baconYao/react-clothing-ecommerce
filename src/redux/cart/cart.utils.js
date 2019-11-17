@@ -1,3 +1,5 @@
+import CartItem from "../../components/cart-item/cart-item.component";
+
 export const addItemToCart = (cartItems, cartItemToAdd) => {
   /* 處理新增物品到購物車時，redux 的操作
    * arguments: 
@@ -19,4 +21,19 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
   // 新選項進入時的操作
   return [...cartItems, { ...cartItemToAdd, quantity: 1}]
+}
+
+export const removeItemFromCart = (cartItems, cartItemToRemove) => {
+  const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToRemove.id);
+
+  if(existingCartItem.quantity === 1) {
+    return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)
+  }
+
+  return cartItems.map(cartItem => 
+    cartItem.id === cartItemToRemove.id ?
+    { ...cartItem, quantity: cartItem.quantity - 1 }
+    : cartItem  
+  );
+
 }
