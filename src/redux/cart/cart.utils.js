@@ -1,5 +1,3 @@
-import CartItem from "../../components/cart-item/cart-item.component";
-
 export const addItemToCart = (cartItems, cartItemToAdd) => {
   /* 處理新增物品到購物車時，redux 的操作
    * arguments: 
