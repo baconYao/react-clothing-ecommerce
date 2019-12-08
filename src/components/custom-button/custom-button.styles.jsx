@@ -35,12 +35,12 @@ const googleSignInStyles = css`
 `;
 
 const getButtonStyles = props => {
-  if(props.isGoogleSignIn) {
+  if (props.isGoogleSignIn) {
     return googleSignInStyles;
   }
 
   return props.inverted ? invertedButtonStyles : buttonStyles;
-}
+};
 
 export const CustomButtonContainer = styled.button`
   min-width: 165px;
@@ -56,6 +56,5 @@ export const CustomButtonContainer = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: center;
-
   ${getButtonStyles}
 `;
