@@ -21,6 +21,8 @@ import CollectionPage from './collection.component';
 // 所以我們需要自己傳入 state 參數給 selectIsCollectionsLoaded。
 // state 參數是 mapStateToProps 給予的，但 createStructuredSelector 會將它自動 pass 給 selector(可以
 // 參考 collection-overview.container.jsx，它就是被自動帶入 state)
+// 
+// ref: https://www.udemy.com/course/complete-react-developer-zero-to-mastery/learn/lecture/15221888#questions/8004528
 const mapStateToProps = createStructuredSelector({
   isLoading: (state => !selectIsCollectionsLoaded(state))
 });
