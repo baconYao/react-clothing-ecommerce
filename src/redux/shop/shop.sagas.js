@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 import { convertCollectionsSnapshotToMap, firestore } from '../../firebase/firebase.utils';
 import { shopActionTypes } from './shop.types';
 import { fetchCollectionsSuccess, fetchCollectionsFailure } from './shop.actions';
@@ -24,5 +24,5 @@ export function* fetchCollectionsAsync() {
 
 export function* fetchCollectionsStart() {
   // 監聽 FETCH_COLLECTIONS_START，當此 action 被觸發時，就會呼叫 fetchCollectionsAsync 去處理
-  yield takeEvery(shopActionTypes.FETCH_COLLECTIONS_START, fetchCollectionsAsync)
+  yield takeLatest(shopActionTypes.FETCH_COLLECTIONS_START, fetchCollectionsAsync)
 }
